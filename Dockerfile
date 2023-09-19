@@ -4,6 +4,7 @@ RUN echo "Installing basic packages" && \
     apt update && DEBIAN_FRONTEND=noninteractive apt install -y --no-install-recommends \
       ca-certificates \
       gnupg \
+      ssh \
       tzdata \
       bash \
       zsh \
@@ -30,7 +31,8 @@ RUN echo "Setting nvm" && \
     export NVM_DIR="$HOME/.nvm" && \
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && \
     [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" && \
-    nvm install --lts
+    nvm install --lts && \
+    npm i -g yarn
 
 RUN echo "Installing Docker" && \
     install -m 0755 -d /etc/apt/keyrings && \
