@@ -31,8 +31,7 @@ RUN echo "Setting nvm" && \
     export NVM_DIR="$HOME/.nvm" && \
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && \
     [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" && \
-    nvm install --lts && \
-    npm i -g yarn
+    nvm install --lts
 
 RUN echo "Installing Docker" && \
     install -m 0755 -d /etc/apt/keyrings && \
