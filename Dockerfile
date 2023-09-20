@@ -13,6 +13,7 @@ RUN echo "Installing basic packages" && \
       git \
       tmux \
       neovim \
+      locales \
       exa
 
 RUN echo "Installing PNPM" && \
@@ -43,3 +44,6 @@ RUN echo "Installing Docker" && \
     tee /etc/apt/sources.list.d/docker.list > /dev/null && \
     apt update && \
     apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+RUN echo "Generating Locale" && \
+    locale-gen en_US.UTF-8
